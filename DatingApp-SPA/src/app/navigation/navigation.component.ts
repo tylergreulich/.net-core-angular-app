@@ -8,7 +8,7 @@ import { Navigation } from './navigation.interface';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  model: Navigation;
+  model: any = {};
 
   constructor(private authService: AuthService) {}
 
@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
       .login(this.model)
       .subscribe(
         next => console.log('Logged in successfully'),
-        error => console.error('Failed to login')
+        error => console.error(error)
       );
   }
 

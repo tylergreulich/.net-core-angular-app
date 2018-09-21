@@ -13,13 +13,13 @@ export class AuthService {
 
   setJwtToken = token => localStorage.setItem('jwtToken', token);
 
-  login(model: AuthImp) {
+  login(model: any) {
     return this.http
       .post(`${this.baseURL}/login`, model)
       .pipe(map(({ token }: any) => this.setJwtToken(token)));
   }
 
-  register(model: AuthImp) {
+  register(model: any) {
     return this.http.post(`${this.baseURL}/register`, model);
   }
 }
